@@ -16,7 +16,7 @@ body {
 
 /* Header & Navigation */
 header {
-    background-color: #e1ed2f;
+    background-color: #658ecf;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -59,7 +59,7 @@ nav a:hover {
 /* Hero Section */
 .hero {
     height: 70vh;
-    background: linear-gradient(rgba(225,237,47,0.8), rgba(225,237,47,0.8)), 
+    background: linear-gradient(rgba(101,142,207,0.8), rgba(101,142,207,0.8)), 
             url('images/hero.jpg') no-repeat center/cover;
     display: flex;
     align-items: center;
