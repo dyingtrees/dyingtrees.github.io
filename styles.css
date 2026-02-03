@@ -55,8 +55,7 @@ nav a:hover {
 /* Hero Section */
 .hero {
     height: 70vh;
-    background: #164ffa, 
-                url('images/hero.jpg') center/cover;
+    background: #164ffa, url('images/hero.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
