@@ -55,7 +55,7 @@ nav a:hover {
 /* Hero Section */
 .hero {
     height: 70vh;
-    background: linear-gradient(rgba(21,24,39,0.75), rgba(21,24,39,0.75)), 
+    background: linear-gradient(rgba(21,24,39,0.8), rgba(21,24,39,0.8)), 
             url('images/hero.jpg') no-repeat center/cover;
     display: flex;
     align-items: center;
