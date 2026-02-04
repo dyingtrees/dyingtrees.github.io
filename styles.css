@@ -125,12 +125,14 @@ nav a:hover {
 .about {
     padding: 4rem 5%;
     background-color: #f9f9f9;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.about-content {
-    max-width: 800px;
+.about-content {    
     text-align: left;
+    font-size: 1.1rem;
+    color: #666;
 }
 
 .about h2 {
@@ -142,16 +144,22 @@ nav a:hover {
 }
 
 .about p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #666;
+    margin: 0.5rem 0;
+    line-height: 1.8;    
 }
 
 /* Contact Section */
 .contact {
     padding: 4rem 5%;
+    background-color: #f9f9f9;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.contact-content {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #666;
 }
 
 .contact h2 {
@@ -162,14 +170,10 @@ nav a:hover {
     letter-spacing: 2px;
 }
 
-.contact-content {
-    text-align: left;
-    font-size: 1.1rem;
-    color: #666;
-}
 
 .contact-content p {
     margin: 0.5rem 0;
+    line-height: 1.8;
 }
 
 /* Footer */
