@@ -58,7 +58,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    height: 50vh;
+    height: 40vh;
     background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), 
             url('images/hero.jpg') no-repeat center/cover;
     display: flex;
@@ -150,7 +150,7 @@ nav a:hover {
 /* Contact Section */
 .contact {
     padding: 4rem 5%;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
