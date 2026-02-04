@@ -91,7 +91,7 @@ nav a:hover {
 }
 
 .gallery h2 {
-    text-align: center;
+    text-align: left;
     font-size: 2.5rem;
     font-weight: 300;
     margin-bottom: 3rem;
@@ -136,7 +136,7 @@ nav a:hover {
 }
 
 .about h2 {
-    text-align: center;
+    text-align: left;
     font-size: 2.5rem;
     font-weight: 300;
     margin-bottom: 2rem;
@@ -163,7 +163,7 @@ nav a:hover {
 }
 
 .contact h2 {
-    text-align: center;
+    text-align: left;
     font-size: 2.5rem;
     font-weight: 300;
     margin-bottom: 2rem;
