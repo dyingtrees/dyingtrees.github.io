@@ -65,6 +65,10 @@ nav a:hover {
     align-items center;
     justify-content: left;
     text-align: left;
+    max width: 1200px;
+    width: 100%:
+    padding: 0 5%;
+    margin: 0 auto;
     color: white;
     margin-top: 60px;
 }
