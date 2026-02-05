@@ -63,7 +63,7 @@ nav a:hover {
             url('images/hero.jpg') no-repeat center/cover;
     display: flex;
     align-items: left;
-    justify-content: left;
+    justify-content: flex;
     text-align: left;
     color: black;
     margin-top: 60px;
