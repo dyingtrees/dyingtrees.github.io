@@ -62,11 +62,11 @@ nav a:hover {
     background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), 
             url('images/hero.jpg') no-repeat center/cover;
     display: center;
-    align-items: left;
+    align-items: center;
     justify-content: left;
     text-align: left;
     color: black;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .hero-content h2 {
