@@ -108,5 +108,22 @@
     <footer>
         <p>&copy; dyingtrees 2026. All rights reserved.</p>
     </footer>
+     <script>
+        // Disable right-click on images
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable dragging images
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
 </body>
 </html>
