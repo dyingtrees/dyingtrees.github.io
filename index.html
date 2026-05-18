@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travis Sanderson Photography</title>
+    <link rel="icon" type="image/png" href="ts.png">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Preload the first carousel image so it appears instantly -->
+    <link rel="preload" as="image" href="photo5.jpg">
+    <style>
+        /* Carousel styles */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .hero-content {
+            text-align: left;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 5%;
+            margin: 0 auto;
+        }
+        
+        /* Carousel dots */
+        .carousel-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .dot.active {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .lightbox-close:hover {
+            color: #ccc;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+       <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJS3RZX51"></script>
+       <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+
+       gtag('config', 'G-TXJS3RZX51');
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Travis Sanderson</h1>
+            <ul>
+                <li><a href="#gallery">gallery</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="carousel">
+            <!-- First slide: high priority, no lazy loading — it's visible immediately -->
+            <div class="carousel-slide active">
+                <img src="photo5.jpg" alt="Carousel Image 1" fetchpriority="high" width="1920" height="1280">
+            </div>
+            <!-- Remaining slides: lazy load since they're hidden until rotated to -->
+            <div class="carousel-slide">
+                <img src="photo9.jpg" alt="Carousel Image 2" loading="lazy" width="1920" height="1280">
+            </div>
+            <div class="carousel-slide">
+                <img src="photo13.jpg" alt="Carousel Image 3" loading="lazy" width="1920" height="1280">
+            </div>
+            <div class="carousel-slide">
+                <img src="photo10.jpg" alt="Carousel Image 4" loading="lazy" width="1920" height="1280">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h2></h2>
+            <p>I like to observe<br>
+               Looking at life around me.<br>
+               And I photograph.</p>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+            <span class="dot" onclick="goToSlide(3)"></span>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>gallery</h2>
+        <div class="gallery-grid">
+            <!-- All gallery images use loading="lazy" so they only fetch when scrolled into view.
+                 width/height prevent layout shifts while images load.
+                 Adjust these dimensions to match your actual image aspect ratio. -->
+            <div class="gallery-item" onclick="openLightbox('photo1.jpg')">
+                <img src="photo1.jpg" alt="Photo 1" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo2.jpg')">
+                <img src="photo2.jpg" alt="Photo 2" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo3.jpg')">
+                <img src="photo3.jpg" alt="Photo 3" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo4.jpg')">
+                <img src="photo4.jpg" alt="Photo 4" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo5.jpg')">
+                <img src="photo5.jpg" alt="Photo 5" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo6.jpg')">
+                <img src="photo6.jpg" alt="Photo 6" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo7.jpg')">
+                <img src="photo7.jpg" alt="Photo 7" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo8.jpg')">
+                <img src="photo8.jpg" alt="Photo 8" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo9.jpg')">
+                <img src="photo9.jpg" alt="Photo 9" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo10.jpg')">
+                <img src="photo10.jpg" alt="Photo 10" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo11.jpg')">
+                <img src="photo11.jpg" alt="Photo 11" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo12.jpg')">
+                <img src="photo12.jpg" alt="Photo 12" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo13.jpg')">
+                <img src="photo13.jpg" alt="Photo 13" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo14.jpg')">
+                <img src="photo14.jpg" alt="Photo 14" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo15.jpg')">
+                <img src="photo15.jpg" alt="Photo 15" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo16.jpg')">
+                <img src="photo16.jpg" alt="Photo 16" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo17.jpg')">
+                <img src="photo17.jpg" alt="Photo 17" loading="lazy" width="800" height="533">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('photo18.jpg')">
+                <img src="photo18.jpg" alt="Photo 18" loading="lazy" width="800" height="533">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>about</h2>
+        <div class="about-content">
+            <p>If you see anything you like, please contact me.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>contact</h2>
+        <div class="contact-content">
+            <p>Email: travissandersonmail@gmail.com</p>
+            <p>Instagram: <a href="https://www.instagram.com/dyingtrees_/" target="_blank">@dyingtrees_</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Travis Sanderson 2026. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="Full size image">
+    </div>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance carousel every 4 seconds
+        setInterval(nextSlide, 4000);
+        
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+    <script>
+        // Disable right-click on images
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable dragging images
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
